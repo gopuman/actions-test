@@ -1,0 +1,14 @@
+name: Create requirements file based on the python program
+
+on:
+  pull_request:
+  
+jobs:
+  read-from-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test pip
+        run: pip freeze .
+        shell: bash
+
+        

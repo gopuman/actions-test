@@ -4,13 +4,7 @@ on:
   pull_request:
 
 jobs:
-  comment-on-pr:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "See Github context"
-        run: echo '${{ toJSON(github.event) }}' | jq
-        shell: bash
-  test:
+  comment-from-community:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -21,4 +15,11 @@ jobs:
             **Hello**
             🌏
             !
+  comment-from-scratch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment from scratch
+    run: |
+      gh api -x POST \
+        http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/pull/
 
