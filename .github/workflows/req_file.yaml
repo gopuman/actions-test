@@ -7,8 +7,7 @@ jobs:
   read-from-file:
     runs-on: ubuntu-latest
     steps:
-      - name: Test pip
+      - name: "Test pip"
         run: pip freeze .
         shell: bash
 
-        
