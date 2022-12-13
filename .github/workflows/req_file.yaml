@@ -1,14 +1,13 @@
 name: Create requirements file based on the python program
 
 on:
-  pull_request:
+  push:
   
 jobs:
   read-from-file:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
       - name: "Test pip"
-        run: pipreqs --version
+        run: pipreqs --version | jq
         shell: bash
 
