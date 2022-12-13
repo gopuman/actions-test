@@ -1,0 +1,24 @@
+name: Create a comment on a pull request
+
+on:
+  pull_request:
+
+jobs:
+  comment-on-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "See Github context"
+        run: echo '${{ toJSON(github.event) }}' | jq
+        shell: bash
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            **Hello**
+            🌏
+            !
+
