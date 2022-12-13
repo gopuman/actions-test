@@ -7,7 +7,8 @@ jobs:
   read-from-file:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - name: "Test pip"
-        run: pip freeze .
+        run: pipreqs --version
         shell: bash
 
